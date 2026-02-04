@@ -1,3 +1,7 @@
+
+
+
+/*
 type User={
     name: string,
     age? :number | null
@@ -11,3 +15,4 @@ const x: User & Student={
     score: 95
 }
 console.log(x);
+*/
