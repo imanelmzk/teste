@@ -1,21 +1,13 @@
-export{};
-interface Person {
-    name: string;
-    age: number;
-}
-let x: Person ={
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+let x = {
     name: "Imane",
-    age: 25
-}
+    //age: 25
+};
 console.log(x);
-
-
-
-
-
 //const w = () => {
- //   console.log("Hello World");
- //   return 10;
+//   console.log("Hello World");
+//   return 10;
 //}
 /*
 const v: (x:number, y:number) => number=(x, y) =>{
@@ -44,4 +36,5 @@ const x: User & Student={
     score: 95
 }
 console.log(x);
-*/
+*/ 
+//# sourceMappingURL=index.js.map
