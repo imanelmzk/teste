@@ -1,16 +1,28 @@
 export{};
 interface Person {
     name: string;
-    age: number;
+    age?: number;
 }
 let x: Person ={
     name: "Imane",
     age: 25
 }
-console.log(x);
+console.log(x.name);
+console.log(x.age);
+
+// const myNumber: number = x.age!; 
+// const myNumber: number = x.age as number; --- IGNORE ---
+const myNumber: number = x.age ?? 0 ;
+console.log(myNumber);
+/*
+type MyType = string | number;
+let y: MyType = "Hello World";
+let z: MyType =10;
+let w: MyType = 10;
+console.log(y, z, w);
 
 
-
+*/
 
 
 //const w = () => {
