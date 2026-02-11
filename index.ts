@@ -10,6 +10,7 @@ let x: Person ={
 console.log(x.name);
 console.log(x.age);
 
+
 // Autre exemple: quand peut cocher selon les choix proposer 
 // le saison + les jours du semaine....
 /*
@@ -30,6 +31,7 @@ console.log(sum<number>(10, 100));
 */
 
 // un exemple
+
 // const myNumber: number = x.age!; 
 // const myNumber: number = x.age as number; --- IGNORE ---
 //const myNumber: number = x.age ?? 0 ;
