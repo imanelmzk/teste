@@ -29,6 +29,7 @@ const sum = <T extends number>(number1: T, number2: T) : number =>{
 console.log(sum<number>(10, 100));
 */
 
+// un exemple
 // const myNumber: number = x.age!; 
 // const myNumber: number = x.age as number; --- IGNORE ---
 //const myNumber: number = x.age ?? 0 ;
