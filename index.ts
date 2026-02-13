@@ -10,10 +10,23 @@ let x: Person ={
 console.log(x.name);
 console.log(x.age);
 
+// Autre exemple: quand peut cocher selon les choix proposer 
+// le saison + les jours du semaine....
+enum BookingStatus {
+    Pending,
+    Confirmed,
+    Cancelled
+}
+let bookingStatus:BookingStatus = BookingStatus.Confirmed;
+console.log(bookingStatus);
+
+
+
+
 // const myNumber: number = x.age!; 
 // const myNumber: number = x.age as number; --- IGNORE ---
-const myNumber: number = x.age ?? 0 ;
-console.log(myNumber);
+//const myNumber: number = x.age ?? 0 ;
+//console.log(myNumber);
 /*
 type MyType = string | number;
 let y: MyType = "Hello World";
