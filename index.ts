@@ -12,6 +12,7 @@ console.log(x.age);
 
 // Autre exemple: quand peut cocher selon les choix proposer 
 // le saison + les jours du semaine....
+/*
 enum BookingStatus {
     Pending,
     Confirmed,
@@ -19,9 +20,14 @@ enum BookingStatus {
 }
 let bookingStatus:BookingStatus = BookingStatus.Confirmed;
 console.log(bookingStatus);
+*/
+/* *** Generic function ***
+const sum = <T extends number>(number1: T, number2: T) : number =>{
+    return number1 + number2;
+}
 
-
-
+console.log(sum<number>(10, 100));
+*/
 
 // const myNumber: number = x.age!; 
 // const myNumber: number = x.age as number; --- IGNORE ---
