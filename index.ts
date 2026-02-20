@@ -1,7 +1,8 @@
+
 export{};
 interface Person{
     name: string;
-    age: number;
+    age?: number;
     email: string;
     isStudent: boolean;
     hobbies: string[];
@@ -42,9 +43,34 @@ interface optionalPerson extends Partial<Person>{}
 const p3 : optionalPerson ={}
 console.log(p3);
 
+// Interface Required (OBLIGATOIR)
+interface RequiredPerson extends Required<Person>{}
+const p4: RequiredPerson = {
+    name: "Imane",
+    age: 25,
+    email: "imane@example.com",
+    isStudent: true,
+    hobbies: ["reading", "coding"],
+    address: {
+        street: "123 Main St",
+        city: "Anytown",
+        country: "USA"
+    }
+}
+console.log(p4);
 
-
-
+const p5: Person ={
+    name: "Imane",
+    email: "imane.lmzk@gmail.com",
+    isStudent: true,
+    hobbies: ["reading", "coding"],
+    address: {
+        street: "123 Main St",
+        city: "Anytown",
+        country: "Australia"
+    }
+}
+console.log(p5);
 
 /* FONCTIONS GENERIQUES POUR RETOURNER UN ELEMENT D'UN TABLEAU SANS PERDRE LE TYPE
 //🧪 Exemple : fonction générique pour récupérer un élément d’un tableau
