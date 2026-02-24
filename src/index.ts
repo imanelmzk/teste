@@ -1,5 +1,42 @@
 
 export{};
+
+// * Utilisation de "TYPE" pour créer des types personnalisés
+type Person = {
+    name: string;
+    age: number;
+    email: string;
+    isStudent: boolean;
+}
+type Car = {
+    make: string;
+    model: string;
+    year: number;
+}
+ type PersonWithoutName = Omit<Person, 'name' | 'isStudent'>; // Omit : pour créer un type en omettant certaines propriétés d'un autre type
+ type PersonWithCar = Person & Car;
+
+ const p: PersonWithCar = {
+    name: "Imane",
+    age: 25,
+    email: "imane.lmzk@email.com",
+    isStudent: true,
+    make: "Toyota",
+    model: "Camry",
+    year: 2020
+}
+console.log(p);
+
+const p2: PersonWithoutName ={
+    age: 25,
+    email: "imane@mail.com",
+   
+}
+console.log(p2);
+
+
+ // * UTILISATION DES UTILS TYPESCRIPT : Omit, Pick, Partial, Required
+/*
 interface Person{
     name: string;
     age?: number;
@@ -71,7 +108,7 @@ const p5: Person ={
     }
 }
 console.log(p5);
-
+*/
 /* FONCTIONS GENERIQUES POUR RETOURNER UN ELEMENT D'UN TABLEAU SANS PERDRE LE TYPE
 //🧪 Exemple : fonction générique pour récupérer un élément d’un tableau
 
