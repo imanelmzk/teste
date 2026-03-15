@@ -19,7 +19,7 @@ type Car = {
  const p: PersonWithCar = {
     name: "Imane",
     age: 25,
-    email: "imane.lmzk@email.com",
+    email: "imane.lmzk@gmail.com",
     isStudent: true,
     make: "Toyota",
     model: "Camry",
@@ -29,7 +29,7 @@ console.log(p);
 
 const p2: PersonWithoutName ={
     age: 25,
-    email: "imane@mail.com",
+    email: "imane@gmail.com",
    
 }
 console.log(p2);

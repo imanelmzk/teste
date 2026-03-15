@@ -1,3 +1,137 @@
+🏗️Fullstack Project - Backend + Frontend ==> Next.js + React +  Tailwind CSS - TypeScript + Express + Prisma + PostgreSQL + APIs
+
+---
+## ✨ Auteur
+**Nom :** Imane Lmzk  
+**Email :** imane.lmzk@gmail.com 
+**Projet Fullstack** : backend TypeScript + Express + Prisma + PostgreSQL .....
+---
+LICENSE
+https://github.com/%3Cton-username%3E/%3Cnom-du-projet%3E/actions
+
+
+📌 Description
+    Ce dossier contient le backend de mon projet fullstack.
+    Technologies utilisées :
+
+**  TypeScript
+**  Express.js pour le serveur
+**  Prisma ORM pour PostgreSQL
+**  PostgreSQL comme base de données
+**  Postman pour tester les endpoints
+
+Objectif : apprendre et pratiquer la création d’APIs RESTful robustes avec gestion de la base de données et tests.
+
+🛠️ Prérequis
+   - Node.js >= 18
+   - PostgreSQL installé et actif
+   - npm ou yarn
+   - Postman (ou autre outil API)
+
+⚡ Installation
+Cloner le projet fullstack si pas déjà fait :
+
+git clone https://github.com/<imanelmzk>/<Backend-Node-Express
+>.git
+cd <Backend-Node-Express>/backend
+
+    🧪 Installer les dépendances :
+         npm install
+
+    🧪 Configurer la base de données :
+         Crée une base PostgreSQL (ex: fullstack_db)
+
+    🧪 Copier .env.example en .env et modifier :
+         DATABASE_URL="postgresql://user:password@localhost:5432/fullstack_db?schema=public"
+    
+    🧪 Générer le client Prisma :
+        npx prisma generate
+        
+    🧪 Exécuter les migrations initiales :
+        npx prisma migrate dev --name init
+***************************************************************       
+
+🚀 Lancer le serveur
+    npm run dev
+
+Le serveur tourne sur http://localhost:3000
+.
+Les routes sont dans /routes, la logique métier dans /controllers.
+
+    📂 Structure du projet
+    backend/
+    ├─ /config      # Configuration serveur & DB
+    ├─ /controllers # Logique métier
+    ├─ /routes      # Définition des endpoints
+    ├─ /middlewares # Middleware (erreurs, auth, etc.)
+    ├─ /prisma      # Client Prisma + migrations
+    └─ /utils       # Fonctions utilitaires
+
+***************************************************************
+
+    🧪 Test des endpoints
+        ** GET /users → liste des utilisateurs
+
+        ** POST /users → créer un utilisateur
+
+        ** PUT /users/:id → mettre à jour un utilisateur
+
+        ** DELETE /users/:id → supprimer un utilisateur
+***************************************************************
+    🧪Exemple POST via Postman :
+        POST /users
+        Content-Type: application/json
+
+            {
+            "name": "Imane",
+            "email": "imane@example.com"
+            }
+***************************************************************
+
+    🔧 Commandes utiles
+        # Lancer le serveur en mode dev
+        npm run dev
+
+        # Compiler TypeScript
+        npm run build
+
+        # Exécuter le code compilé
+        npm start
+
+        # Vérifier Prisma Client
+        npx prisma generate
+
+        # Migration
+        npx prisma migrate dev --name <migration_name>
+
+        # Ouvrir Prisma Studio (interface DB)
+        npx prisma studio
+        📈 Bonnes pratiques
+
+***************************************************************
+ - Séparer routes et controllers
+ - Toujours typer avec TypeScript
+ - Utiliser Prisma Client pour toutes les opérations DB
+ - Maintenir un format JSON cohérent pour les réponses
+
+    🤝 Contribution
+     - Contributions possibles :
+
+        Améliorer les endpoints
+        Ajouter des tests
+        Optimiser la structure backend
+        Compléter la documentation
+
+***************************************************************       
+
+📄 Licence
+Ce projet est sous licence MIT.
+
+***************************************************************
+***************************************************************
+***************************************************************
+***************************************************************
+
 # 📘 React + TypeScript Learning Repository
 
 ## 🎯 Purpose
