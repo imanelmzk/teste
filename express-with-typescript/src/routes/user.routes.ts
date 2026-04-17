@@ -1,23 +1,18 @@
-import express = require("express");
-import { getUsers, createUser } from "../controllers/user.controller";
-import { Router } from 'express';
+import { Router } from "express";
+import { getUserById, createUser, updateUser, deleteUser} from "../controllers/user.controller";
 
 const router = Router();
-//GET /users
-router.get("/", getUsers); 
 
-//POST /users
-/*
-router.post("/", (req, res) => {
-    res.send("Create a new user");
-}); 
-*/
-// OU
+// GET /users :id
+router.get("/:id", getUserById);
+
+// POST /users
 router.post("/", createUser);
 
-/*
-const router = express.Router();
-// **  Route définie 
-export default router.get("/", getUsers);
-*/
+// PUT/PATCH /users :id
+router.put("/:id", updateUser);
+
+//DELETE /users :id
+router.delete("/:id", deleteUser);
+
 export default router;

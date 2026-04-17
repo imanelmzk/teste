@@ -6,12 +6,12 @@ generator client{
 // 2* Datasource :  pour définir la BDD
 datasource db {
   provider = "postgresql"
-  url      = "file:./dev.db"
+  url      = env("DATABASE_URL")
 }
 
 // 3* Model = nos tables
 model User{
   id    Int @id @default(autoincrement())
   name  String
-  email String
+  email String @unique
 }
