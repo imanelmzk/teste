@@ -1,10 +1,29 @@
-import { createUserSchema } from '../validators/user.schema';
+//import { createUserSchema } from '../validators/user.schema';
 //import { getUserById } from './user.controller';
 // import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
-import /*getUserById + createUser + updateUser + deleteUser*/ * as userService from "../services/user.service";
+//import /*getUserById + createUser + updateUser + deleteUser*/ * as userService from "../services/user.service";
 
 
+// 1. On garde notre test simplifié pour voir si ça répond enfin
+export const getUserById = async (req: Request, res: Response) => {
+  console.log("Requête reçue pour l'ID:", req.params.id);
+  return res.json({ message: "Le backend fonctionne enfin !" });
+};
+
+// 2. On ajoute les fonctions vides pour que TypeScript arrête de crier
+export const createUser = async (req: Request, res: Response) => {
+  return res.json({ message: "Fonction createUser prête" });
+};
+
+export const updateUserController = async (req: Request, res: Response) => {
+  return res.json({ message: "Fonction update prête" });
+};
+
+export const deleteUser = async (req: Request, res: Response) => {
+  return res.json({ message: "Fonction delete prête" });
+};
+/*
 // * Créer un nouvel utilsateur avec validation ZOD
 export const createUserSchemaTeste = async(req: Request, res: Response) =>{
   try{
@@ -32,13 +51,18 @@ export const createUserSchemaTeste = async(req: Request, res: Response) =>{
 
 
 // * Récupérer tous les utilisateurs par ID+ * GET *
-export const getUserById = async(req: Request, res: Response) => {
-  try{
+export const getUserById = async (req: Request, res: Response) => {
+  console.log("Requete reçue pour l'ID:", req.params.id); // ✅ Ajoute un log pour vérifier que l'ID est bien reçu
+  try {
     const user = await userService.getUserById(Number(req.params.id));
-    res.json(user);
+    if (!user) {
+      return res.status(404).json({ error: "Utilisateur non trouvé" });
+    }
+    return res.json(user); // <--- Vérifie que le "res.json" est bien là
   } catch (error) {
-    res.status(500).json({ error: "Erreur lors de la récupération de l'utilisateur" });
-  };
+    // Si tu oublies le res.status ici, en cas d'erreur, ça chargera à l'infini
+    return res.status(500).json({ error: "Erreur serveur" });
+  }
 };
 
 // *  Créer un nouvel utilisateur + * POST *
@@ -53,7 +77,19 @@ export const createUser = async(req: Request, res:Response) =>{
     res.status(500).json({error : "Erreur Interne"})
   };
 };
-
+export const updateUserController = async(req: Request, res: Response) =>{
+  try{
+    // On force TYPESCRIPT à considérer req.params.id comme une string, puis on le convertit en nombre avec parseInt
+    const id = parseInt(req.params.id as string); // ✅ corrige "const id = Number(req.params.id);" → "const id = parseInt(req.params.id as string);"
+    const {name} = req.body;
+    // On appale le service de mise à jour en lui passant l'id et le nom (email est optionnel)
+    const updatedUser = await userService.updateUser(id, name);
+    res.json(updatedUser);
+  }catch(error){
+    res.status(500).json({error : "Erreur lors de la mise à jour de l'utilisateur"})
+  }
+}
+/*
 // * Modifier un utilisateur via id + * PUT/PATCH *
 export const updateUser = async(req: Request, res: Response) =>{
   try{
@@ -65,7 +101,8 @@ export const updateUser = async(req: Request, res: Response) =>{
       res.status(404).json({error : "Utilisateur non trouvé"})
     };
 };
-
+*/
+/*
  // * Supprimer un utilisateur via id + * DELETE *
  export const deleteUser = async (req:Request, res:Response) =>{
   try{

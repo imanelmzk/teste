@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getUserById, createUser, updateUser, deleteUser} from "../controllers/user.controller";
+import { getUserById, createUser, deleteUser, updateUserController} from "../controllers/user.controller";
 
 const router = Router();
 
@@ -10,7 +10,7 @@ router.get("/:id", getUserById);
 router.post("/", createUser);
 
 // PUT/PATCH /users :id
-router.put("/:id", updateUser);
+router.put("/:id", updateUserController);
 
 //DELETE /users :id
 router.delete("/:id", deleteUser);

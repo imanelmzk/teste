@@ -5,23 +5,28 @@ const prisma = new PrismaClient();
 
 // * Récupérer tous les utilisateurs + * GET *
 export const getUserById = async(id: number) =>{
+    console.log(`Récupération de l'utilisateur avec l'ID : ${id}`);
     return await prisma.user.findUnique({
-        where : {id : 1}
+        where : {id : id}
     });
 };
     
 // * Créer un nouvel utilisateur + * POST *
 export const createUser = async(name: string, email: string)=>{
+    console.log(`Création d'un nouvel utilisateur : ${name} (${email})`);
     return await prisma.user.create({
         data : {name,email}
     });
 };
 
 // * Modifier un utilisateur via id + * PUT/PATCH *
-export const updateUser = async(id: number, name: string, email: string)=>{
+export const updateUser = async(id: number, name: string, email?: string)=>{
     return await prisma.user.update({
         where : {id},
-        data : {name, email}
+        data : {
+            name : name,
+            ...(email && { email }) // Si email est fourni, on l'ajoute à l'objet data, sinon on ne le modifie pas
+        }
     });
 };
 
