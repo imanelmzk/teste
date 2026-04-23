@@ -1,10 +1,10 @@
-//import { createUserSchema } from '../validators/user.schema';
+import { createUserSchema } from '../validators/user.schema';
 //import { getUserById } from './user.controller';
 // import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
-//import /*getUserById + createUser + updateUser + deleteUser*/ * as userService from "../services/user.service";
+import /*getUserById + createUser + updateUser + deleteUser*/ * as userService from "../services/user.service";
 
-
+/*
 // 1. On garde notre test simplifié pour voir si ça répond enfin
 export const getUserById = async (req: Request, res: Response) => {
   console.log("Requête reçue pour l'ID:", req.params.id);
@@ -22,8 +22,8 @@ export const updateUserController = async (req: Request, res: Response) => {
 
 export const deleteUser = async (req: Request, res: Response) => {
   return res.json({ message: "Fonction delete prête" });
-};
-/*
+};*/
+
 // * Créer un nouvel utilsateur avec validation ZOD
 export const createUserSchemaTeste = async(req: Request, res: Response) =>{
   try{
@@ -89,7 +89,7 @@ export const updateUserController = async(req: Request, res: Response) =>{
     res.status(500).json({error : "Erreur lors de la mise à jour de l'utilisateur"})
   }
 }
-/*
+
 // * Modifier un utilisateur via id + * PUT/PATCH *
 export const updateUser = async(req: Request, res: Response) =>{
   try{
@@ -101,8 +101,8 @@ export const updateUser = async(req: Request, res: Response) =>{
       res.status(404).json({error : "Utilisateur non trouvé"})
     };
 };
-*/
-/*
+
+
  // * Supprimer un utilisateur via id + * DELETE *
  export const deleteUser = async (req:Request, res:Response) =>{
   try{
