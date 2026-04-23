@@ -20,6 +20,8 @@ const server = app.listen(port, () => {
   console.log(`🚀 Serveur réellement actif sur : http://localhost:${port}`);
 });
 
+
+
 // SOLUTION RADICALE : On force Node à rester éveillé
 // On lui donne une petite tâche à faire toutes les heures pour qu'il ne s'éteigne pas
 setInterval(() => {}, 1000 * 60 * 60);
