@@ -81,9 +81,9 @@ export const updateUserController = async(req: Request, res: Response) =>{
   try{
     // On force TYPESCRIPT à considérer req.params.id comme une string, puis on le convertit en nombre avec parseInt
     const id = parseInt(req.params.id as string); // ✅ corrige "const id = Number(req.params.id);" → "const id = parseInt(req.params.id as string);"
-    const {name} = req.body;
+    const {name, email} = req.body;
     // On appale le service de mise à jour en lui passant l'id et le nom (email est optionnel)
-    const updatedUser = await userService.updateUser(id, name);
+    const updatedUser = await userService.updateUser(id, name, email);
     res.json(updatedUser);
   }catch(error){
     res.status(500).json({error : "Erreur lors de la mise à jour de l'utilisateur"})

@@ -25,7 +25,8 @@ export const updateUser = async(id: number, name: string, email?: string)=>{
         where : {id},
         data : {
             name : name,
-            ...(email && { email }) // Si email est fourni, on l'ajoute à l'objet data, sinon on ne le modifie pas
+            email : email
+           // ...(email && { email }) // Si email est fourni, on l'ajoute à l'objet data, sinon on ne le modifie pas
         }
     });
     
