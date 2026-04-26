@@ -3,14 +3,20 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-// * Récupérer tous les utilisateurs + * GET *
+// * Récupérer tous les utilisateurs By ID + * GET *
 export const getUserById = async(id: number) =>{
     console.log(`Récupération de l'utilisateur avec l'ID : ${id}`);
     return await prisma.user.findUnique({
         where : {id : id}
     });
 };
-    
+
+// * Récupérer tous les utilisateurs + * GET *
+export const getUsers = async() =>{
+    console.log(`Récupération de tous les utilisateurs`);
+    return await prisma.user.findMany();    
+}
+
 // * Créer un nouvel utilisateur + * POST *
 export const createUser = async(name: string, email: string)=>{
     console.log(`Création d'un nouvel utilisateur : ${name} (${email})`);

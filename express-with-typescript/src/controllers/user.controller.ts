@@ -64,6 +64,14 @@ export const getUserById = async (req: Request, res: Response) => {
     return res.status(500).json({ error: "Erreur serveur" });
   }
 };
+export const getUsers = async(req: Request, res: Response) =>{
+  try{
+    const users = await userService.getUsers();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: "Erreur lors de la récupération des utilisateurs" });
+  }
+}
 
 // *  Créer un nouvel utilisateur + * POST *
 export const createUser = async(req: Request, res:Response) =>{
