@@ -4,25 +4,6 @@ import { createUserSchema } from '../validators/user.schema';
 import { Request, Response } from "express";
 import /*getUserById + createUser + updateUser + deleteUser*/ * as userService from "../services/user.service";
 
-/*
-// 1. On garde notre test simplifié pour voir si ça répond enfin
-export const getUserById = async (req: Request, res: Response) => {
-  console.log("Requête reçue pour l'ID:", req.params.id);
-  return res.json({ message: "Le backend fonctionne enfin !" });
-};
-
-// 2. On ajoute les fonctions vides pour que TypeScript arrête de crier
-export const createUser = async (req: Request, res: Response) => {
-  return res.json({ message: "Fonction createUser prête" });
-};
-
-export const updateUserController = async (req: Request, res: Response) => {
-  return res.json({ message: "Fonction update prête" });
-};
-
-export const deleteUser = async (req: Request, res: Response) => {
-  return res.json({ message: "Fonction delete prête" });
-};*/
 
 // * Créer un nouvel utilsateur avec validation ZOD
 export const createUserSchemaTeste = async(req: Request, res: Response) =>{
@@ -37,16 +18,17 @@ export const createUserSchemaTeste = async(req: Request, res: Response) =>{
 
       const newUser = await userService.createUser(name, email);
       res.status(201).json(newUser);
-  }catch(error : any){
-    //* 3. Si ZOD détecte une erreur, on renvoi un message précis
-    if(error.name == "ZODErreur"){
-      return res.status(400).json({
-        error: "Données invalides",
-        details: error.errors // Donne les détails.
-      });
+  }catch (error: any) {
+    console.error("Détail de l'erreur:", error);
+    // ✅ Zod stocke ses erreurs dans une propriété .issues ou .errors
+    if (error.issues) {
+        return res.status(400).json({
+            error: "Données invalides",
+            details: error.issues
+        });
     }
-      res.status(500).json({error : "Serveur échoué"})
-  }
+    res.status(500).json({ error: "Erreur interne" });
+}
 }
 
 

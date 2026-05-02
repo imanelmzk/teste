@@ -14,7 +14,9 @@ export const getUserById = async(id: number) =>{
 // * Récupérer tous les utilisateurs + * GET *
 export const getUsers = async() =>{
     console.log(`Récupération de tous les utilisateurs`);
-    return await prisma.user.findMany();    
+    return await prisma.user.findMany({
+        orderBy : {id : 'asc'} // Tri par ID croissant
+    });    
 }
 
 // * Créer un nouvel utilisateur + * POST *
